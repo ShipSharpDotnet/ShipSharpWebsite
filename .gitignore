@@ -4,6 +4,7 @@ publish/
 output/
 dotnet/
 dotnet-install.sh
+.wrangler/
 .vs/
 .idea/
 *.user
