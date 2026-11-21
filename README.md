@@ -100,7 +100,7 @@ It also deletes the old `output/` directory before publishing, so stale files ca
 ### Cloudflare files
 
 - `wrangler.jsonc` — points Wrangler at `output/wwwroot` and enables SPA fallback.
-- `wwwroot/_headers` — emits security headers. HTTPS/HSTS are handled by Cloudflare’s dashboard, not ASP.NET Core middleware.
+- `wwwroot/_headers` — emits security headers and marks the `workers.dev` URL `noindex`. HTTPS/HSTS are handled by Cloudflare’s dashboard, not ASP.NET Core middleware.
 
 ### Custom domain
 
