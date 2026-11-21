@@ -1,0 +1,93 @@
+<!-- ========================================================= -->
+<!-- SKILLS IN DETAIL (from the Kelenna portfolio)              -->
+<!-- ========================================================= -->
+<section class="pt-4 pb-20 sm:pb-24 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+            <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-brand-cyan font-semibold mb-2">What I Actually Do</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+                Built Across Desktop, Web, Mobile &amp; Games
+            </h2>
+            <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                I'm Kelenna Kennedy Okere, a software developer and creator focused on practical, fast, and interesting software. I primarily work with C# and .NET across desktop, mobile, web, and games, and I like learning by actually building things.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            @foreach (var group in SkillGroups)
+            {
+                <div class="group rounded-2xl bg-navy-800/60 backdrop-blur-md border border-white/10 p-7 hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl @group.IconClasses flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="@group.Icon" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">@group.Title</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">@group.Description</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 font-mono text-xs">
+                        @foreach (var skill in group.Skills)
+                        {
+                            <span class="px-2.5 py-1 rounded-lg @group.ChipClasses">@skill</span>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="mt-10 rounded-2xl bg-navy-950/60 border border-white/10 p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+                <p class="font-mono text-xs uppercase tracking-widest text-brand-mint font-semibold mb-2">How I Work</p>
+                <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
+                    "My goal isn't to use the most complicated technology available. It's to make the thing work, make it right, and then make it fast."
+                </p>
+            </div>
+            <NavLink href="/contact" class="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-magenta text-navy-950 font-bold text-sm shadow-glow-cyan hover:opacity-95 active:scale-95 transition-all">
+                Start a Project
+            </NavLink>
+        </div>
+    </div>
+</section>
+
+@code {
+    private sealed record SkillGroup(
+        string Title,
+        string Description,
+        string Icon,
+        string IconClasses,
+        string ChipClasses,
+        string[] Skills);
+
+    private static readonly SkillGroup[] SkillGroups =
+    [
+        new SkillGroup(
+            "C# / .NET",
+            "Desktop applications, web applications, mobile applications, and developer tools built with modern C#.",
+            "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+            "bg-brand-cyan/10 border border-brand-cyan/25 text-brand-cyan",
+            "bg-navy-900/90 text-brand-cyan border border-brand-cyan/20",
+            ["C#", ".NET", "Desktop Apps", "Web Apps", "Mobile Apps", "Developer Tools"]),
+        new SkillGroup(
+            "Web Development",
+            "From interactive component UIs to plain HTML, CSS, and JavaScript — with an eye on how the page feels to use.",
+            "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+            "bg-brand-magenta/10 border border-brand-magenta/25 text-brand-magenta",
+            "bg-navy-900/90 text-brand-magenta border border-brand-magenta/20",
+            ["Blazor", "HTML", "CSS", "JavaScript", "React.js"]),
+        new SkillGroup(
+            "UI / Application Development",
+            "Native-feeling interfaces across platforms, plus the Linux and systems knowledge to make them run well.",
+            "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+            "bg-brand-mint/10 border border-brand-mint/25 text-brand-mint",
+            "bg-navy-900/90 text-brand-mint border border-brand-mint/20",
+            ["Avalonia UI", ".NET MAUI", "UI Design", "Blazor", "WPF"]),
+        new SkillGroup(
+            "Linux, Games & Experiments",
+            "Performance-focused development, system customization, game development with Godot, and experimental OS concepts.",
+            "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+            "bg-brand-cyan/10 border border-brand-cyan/25 text-brand-cyan",
+            "bg-navy-900/90 text-slate-200 border border-white/15",
+            ["Linux", "Godot", "Game Dev", "System Customization", "Performance", "OS Concepts"])
+    ];
+}

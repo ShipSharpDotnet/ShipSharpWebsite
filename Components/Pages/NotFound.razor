@@ -1,0 +1,20 @@
+﻿@page "/not-found"
+@layout MainLayout
+
+<Seo Title="Page Not Found"
+     Description="The page you were looking for does not exist on ShipSharp.net."
+     Path="/not-found"
+     NoIndex="true" />
+
+<section class="py-28 sm:py-36">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-brand-cyan font-semibold mb-2">404 &mdash; Lost at Sea</p>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">This page never shipped.</h1>
+        <p class="text-slate-400 text-base sm:text-lg max-w-xl mx-auto mb-8">
+            The route you were looking for isn't in this build. Head back to the harbor and pick a destination.
+        </p>
+        <NavLink href="/" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-magenta text-navy-950 font-bold shadow-glow-cyan hover:opacity-95 active:scale-[0.98] transition-all">
+            Back to Home
+        </NavLink>
+    </div>
+</section>

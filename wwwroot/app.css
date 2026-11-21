@@ -1,0 +1,74 @@
+/* Self-hosted variable fonts (Google Fonts, SIL Open Font License) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('fonts/inter-latin.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url('fonts/jetbrains-mono-latin.woff2') format('woff2');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* NavLink active states */
+nav a.active,
+a.mobile-nav-link.active {
+    color: #00D2FF;
+}
+
+a.mobile-nav-link.active {
+    background-color: rgba(26, 30, 53, 0.8);
+}
+
+/* Visible keyboard focus on interactive elements */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #00D2FF;
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Blazor WebAssembly unhandled-error banner */
+#blazor-error-ui {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.85rem 1.25rem;
+    background: #1A1E35;
+    color: #f8fafc;
+    border-top: 1px solid rgba(217, 70, 239, 0.5);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+#blazor-error-ui .reload {
+    color: #00D2FF;
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    margin-left: 0.75rem;
+    color: #94a3b8;
+}

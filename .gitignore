@@ -1,0 +1,10 @@
+bin/
+obj/
+publish/
+output/
+dotnet/
+dotnet-install.sh
+.vs/
+.idea/
+*.user
+tools/tailwindcss

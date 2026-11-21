@@ -1,0 +1,34 @@
+﻿@page "/Error"
+@layout MainLayout
+@using System.Diagnostics
+
+<Seo Title="Something went wrong"
+     Description="An unexpected error occurred while processing your request on ShipSharp.net."
+     Path="/Error"
+     NoIndex="true" />
+
+<section class="py-28 sm:py-36">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-brand-magenta font-semibold mb-2">Error</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Something went wrong.</h1>
+        <p class="text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
+            An unexpected error occurred while processing your request. Please try again in a moment.
+        </p>
+
+        @if (ShowRequestId)
+        {
+            <p class="font-mono text-xs text-slate-500 mb-8">
+                Request ID: <code class="text-slate-300">@RequestId</code>
+            </p>
+        }
+
+        <NavLink href="/" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-magenta text-navy-950 font-bold shadow-glow-cyan hover:opacity-95 transition-all">
+            Back to Home
+        </NavLink>
+    </div>
+</section>
+
+@code {
+    private string? RequestId => Activity.Current?.Id;
+    private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+}

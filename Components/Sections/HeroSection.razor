@@ -1,0 +1,162 @@
+<!-- ========================================================= -->
+<!-- HERO SECTION                                              -->
+<!-- ========================================================= -->
+<section class="relative pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+            <!-- Left Column: Copy & CTAs -->
+            <div class="lg:col-span-6 space-y-7">
+                <!-- Status Pill -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-navy-800/80 border border-brand-mint/30 text-xs sm:text-sm font-medium text-brand-mint shadow-sm">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mint opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-mint"></span>
+                    </span>
+                    Available for Freelance Projects
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-5xl lg:text-[3.35rem] font-extrabold tracking-tight leading-[1.1] text-white">
+                    Shipping Native
+                    <span class="bg-gradient-to-r from-brand-cyan via-brand-mint to-brand-magenta bg-clip-text text-transparent">
+                        C# Desktop Apps
+                    </span>
+                    &amp; .NET APIs.
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl">
+                    Cross-platform Windows &amp; Linux utilities built with <span class="text-white font-medium">Avalonia UI</span>, plus fast, reliable <span class="text-white font-medium">ASP.NET Core</span> backends&mdash;delivered as clean, ready-to-run binaries.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
+                    <NavLink href="/contact" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-magenta text-navy-950 font-bold text-base shadow-glow-cyan hover:opacity-95 active:scale-[0.98] transition-all">
+                        Start a Project
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </NavLink>
+                    <NavLink href="/projects" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-navy-800/80 border border-white/15 text-white font-semibold text-base hover:border-brand-cyan/50 hover:bg-navy-800 active:scale-[0.98] transition-all">
+                        View Work
+                    </NavLink>
+                </div>
+
+                <!-- Quick Trust Highlights -->
+                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 max-w-md">
+                    <div>
+                        <div class="font-mono text-sm sm:text-base font-bold text-brand-cyan">.NET 10</div>
+                        <div class="text-xs text-slate-400">Modern C# Stack</div>
+                    </div>
+                    <div>
+                        <div class="font-mono text-sm sm:text-base font-bold text-brand-mint">Win / Linux</div>
+                        <div class="text-xs text-slate-400">Native Binaries</div>
+                    </div>
+                    <div>
+                        <div class="font-mono text-sm sm:text-base font-bold text-brand-magenta">Clean Code</div>
+                        <div class="text-xs text-slate-400">Production Ready</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Stylized Code / Terminal Window -->
+            <div class="lg:col-span-6">
+                <div class="relative rounded-2xl bg-navy-950/90 border border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl">
+                    <!-- Top Gradient Hairline -->
+                    <div class="h-1 w-full bg-gradient-to-r from-brand-cyan via-brand-mint to-brand-magenta"></div>
+
+                    <!-- Window Titlebar & Interactive Tabs -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-navy-800/70 border-b border-white/10">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+                        </div>
+                        <div class="flex items-center gap-1.5 font-mono text-xs">
+                            <button type="button" class="code-tab-btn px-3 py-1 rounded-lg @AvaloniaTabClass transition-colors" @onclick="ShowAvaloniaTab">
+                                HotspotService.cs
+                            </button>
+                            <button type="button" class="code-tab-btn px-3 py-1 rounded-lg @PublishTabClass transition-colors" @onclick="ShowPublishTab">
+                                publish.sh
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab 1: C# / Avalonia Snippet -->
+                    <div id="code-tab-avalonia" class="@AvaloniaPaneClass p-5 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto">
+<pre class="text-slate-300"><code><span class="text-brand-magenta">using</span> Avalonia.Threading;
+<span class="text-brand-magenta">using</span> System.Diagnostics;
+
+<span class="text-brand-magenta">namespace</span> <span class="text-brand-cyan">ShipSharp.HotspotGui</span>;
+
+<span class="text-brand-magenta">public sealed class</span> <span class="text-brand-mint">HotspotService</span>
+{
+    <span class="text-brand-magenta">public async</span> Task <span class="text-brand-cyan">StartAsync</span>(<span class="text-brand-magenta">string</span> iface, <span class="text-brand-magenta">string</span> ssid)
+    {
+        <span class="text-slate-500">// Spawn virtual AP via Polkit without root UI</span>
+        <span class="text-brand-magenta">var</span> psi = <span class="text-brand-magenta">new</span> <span class="text-brand-mint">ProcessStartInfo</span>(<span class="text-amber-300">"pkexec"</span>)
+        {
+            ArgumentList = { <span class="text-amber-300">"/usr/bin/create_ap"</span>, <span class="text-amber-300">"-w"</span>, <span class="text-amber-300">"2"</span>, iface, iface, ssid },
+            RedirectStandardOutput = <span class="text-brand-cyan">true</span>,
+            UseShellExecute = <span class="text-brand-cyan">false</span>
+        };
+
+        <span class="text-brand-magenta">using var</span> proc = Process.<span class="text-brand-cyan">Start</span>(psi);
+        <span class="text-brand-magenta">await</span> Dispatcher.UIThread.<span class="text-brand-cyan">InvokeAsync</span>(() =&gt;
+            Status = <span class="text-amber-300">"AP-ENABLED • Client Connected"</span>);
+    }
+}</code></pre>
+                    </div>
+
+                    <!-- Tab 2: dotnet publish & Debian .deb Packaging Snippet -->
+                    <div id="code-tab-publish" class="@PublishPaneClass p-5 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto">
+<pre class="text-slate-300"><code><span class="text-slate-500"># 1. Compile optimized Linux x64 binary (.NET 10)</span>
+<span class="text-brand-mint">$</span> dotnet publish -c Release -r linux-x64 \
+    --self-contained false \
+    -o pkg/opt/hotspot-gui
+
+<span class="text-slate-400">  Determining projects to restore...</span>
+<span class="text-slate-400">  HotspotGui -&gt; pkg/opt/hotspot-gui/HotspotGui</span>
+
+<span class="text-slate-500"># 2. Package installable Debian .deb artifact</span>
+<span class="text-brand-mint">$</span> dpkg-deb --build pkg hotspot-gui_1.0.0_amd64.deb
+<span class="text-brand-cyan">dpkg-deb: building package 'hotspot-gui' in 'hotspot-gui_1.0.0_amd64.deb'.</span>
+
+<span class="text-brand-mint">✔ Ready to ship.</span> Zero external runtime guesswork.</code></pre>
+                    </div>
+
+                    <!-- Terminal Footer Status Bar -->
+                    <div class="flex items-center justify-between px-5 py-2.5 bg-navy-800/50 border-t border-white/10 text-[11px] font-mono text-slate-400">
+                        <span class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+                            UTF-8 • C# 13 / .NET 10
+                        </span>
+                        <span class="text-brand-cyan">Build Succeeded (0 warnings)</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@code {
+    private string _activeCodeTab = "avalonia";
+
+    private string AvaloniaTabClass => _activeCodeTab == "avalonia"
+        ? "bg-navy-900 text-brand-cyan border border-brand-cyan/30 font-medium"
+        : "text-slate-400 hover:text-slate-200 border border-transparent";
+
+    private string PublishTabClass => _activeCodeTab == "publish"
+        ? "bg-navy-900 text-brand-cyan border border-brand-cyan/30 font-medium"
+        : "text-slate-400 hover:text-slate-200 border border-transparent";
+
+    private string AvaloniaPaneClass => _activeCodeTab == "avalonia" ? "" : "hidden";
+
+    private string PublishPaneClass => _activeCodeTab == "publish" ? "" : "hidden";
+
+    private void ShowAvaloniaTab() => _activeCodeTab = "avalonia";
+
+    private void ShowPublishTab() => _activeCodeTab = "publish";
+}

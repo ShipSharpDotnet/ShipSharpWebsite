@@ -1,0 +1,299 @@
+@inject IJSRuntime JS
+
+<!-- ========================================================= -->
+<!-- FEATURED PROJECTS SECTION                                 -->
+<!-- ========================================================= -->
+<section id="projects" class="py-20 sm:py-24 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-14">
+            <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-brand-magenta font-semibold mb-2">Featured Work</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Shipped Software &amp; Reference Architectures
+            </h2>
+            <p class="mt-3 text-slate-400 text-base sm:text-lg">
+                Real-world desktop utilities and backend blueprints demonstrating clean architecture and native packaging.
+            </p>
+        </div>
+
+        <!-- Flagship Project Card 1: HotspotGui -->
+        <div class="rounded-2xl bg-navy-800/70 backdrop-blur-md border border-white/10 hover:border-brand-cyan/40 transition-all overflow-hidden mb-8 shadow-xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Left: Interactive-Style UI Mockup Preview of HotspotGui -->
+                <div class="lg:col-span-6 p-6 sm:p-8 bg-navy-950/70 border-b lg:border-b-0 lg:border-r border-white/10 flex items-center justify-center">
+                    <div class="w-full max-w-md rounded-xl bg-[#1E1E2E] border border-white/10 shadow-2xl overflow-hidden text-left">
+                        <!-- Mockup App Bar -->
+                        <div class="px-4 py-3 bg-[#181825] border-b border-white/10 flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-100">Wi-Fi Repeater Hotspot</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#313244] text-[11px] font-semibold text-[#89B4FA]">Client Connected</span>
+                        </div>
+                        <!-- Mockup Body -->
+                        <div class="p-4 space-y-3 text-xs">
+                            <div class="grid grid-cols-2 gap-2.5 items-end">
+                                <div>
+                                    <div class="text-[10px] text-slate-400 mb-1">Wi-Fi Interface</div>
+                                    <div class="px-2.5 py-1.5 rounded-lg bg-[#313244]/70 border border-white/10 text-slate-200 font-mono">wlp2s0</div>
+                                </div>
+                                <div class="flex items-center gap-2 pb-1.5 text-slate-300">
+                                    <span class="w-4 h-4 rounded bg-brand-cyan/20 border border-brand-cyan flex items-center justify-center text-[10px] text-brand-cyan">&#10003;</span>
+                                    <span>Force WPA2 (-w 2)</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <div class="py-1.5 rounded-lg bg-slate-700/60 text-slate-400 text-center font-semibold">Start Hotspot</div>
+                                <div class="py-1.5 rounded-lg bg-[#F38BA8] text-[#11111B] text-center font-bold">Stop Hotspot</div>
+                            </div>
+                            <!-- Mockup Live Terminal Output -->
+                            <div class="rounded-lg bg-[#11111B] border border-white/5 p-2.5 font-mono text-[10px] leading-relaxed text-slate-300">
+                                <div class="text-slate-400">Creating virtual WiFi interface... ap0 created.</div>
+                                <div class="text-emerald-400">ap0: AP-ENABLED (channel 11)</div>
+                                <div class="text-brand-cyan">ap0: EAPOL-4WAY-HS-COMPLETED fa:06:98:20:36:e3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: HotspotGui Details -->
+                <div class="lg:col-span-6 p-7 sm:p-9 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 text-brand-cyan font-mono text-xs font-semibold mb-4">
+                            Featured Desktop App
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                            HotspotGui <span class="text-slate-400 font-normal text-lg">(Wi-Fi Repeater)</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                            A native Linux Avalonia UI desktop application built in C# (.NET 10) that manages simultaneous <span class="font-mono text-white">STA+AP</span> Wi-Fi hotspots via <span class="font-mono text-brand-cyan">create_ap</span> and Polkit&mdash;complete with real-time connection logs and packaged as an installable Debian <span class="font-mono text-white">.deb</span> package.
+                        </p>
+
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2 mb-7 font-mono text-xs">
+                            <span class="px-3 py-1 rounded-lg bg-navy-900 text-brand-cyan border border-brand-cyan/25">C#</span>
+                            <span class="px-3 py-1 rounded-lg bg-navy-900 text-brand-magenta border border-brand-magenta/25">Avalonia UI</span>
+                            <span class="px-3 py-1 rounded-lg bg-navy-900 text-brand-mint border border-brand-mint/25">Linux</span>
+                            <span class="px-3 py-1 rounded-lg bg-navy-900 text-slate-200 border border-white/15">.deb</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-mint text-navy-950 font-bold text-sm hover:opacity-95 active:scale-95 transition-all" @onclick='() => OpenProjectModal("hotspot")'>
+                            View Details &amp; Architecture
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </button>
+                        <NavLink href="/contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-navy-900/80 border border-white/15 text-slate-200 font-semibold text-sm hover:border-brand-cyan/40 transition-colors">
+                            Request Similar Tool
+                        </NavLink>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Showcase Cards (2-Column Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <!-- Card 2: ASP.NET Core Integration API -->
+            <div class="rounded-2xl bg-navy-800/60 backdrop-blur-md border border-white/10 p-7 hover:border-brand-magenta/40 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-brand-magenta/10 border border-brand-magenta/25 text-brand-magenta font-mono text-xs font-semibold">
+                            Backend Showcase
+                        </span>
+                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2.5">ASP.NET Core Integration API</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        High-throughput REST API designed for reliable webhook ingestion, resilient retry queues, and automated background workers running inside lightweight Docker containers.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
+                        <span class="px-2.5 py-1 rounded-lg bg-navy-900 text-brand-cyan border border-brand-cyan/20">C#</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-navy-900 text-brand-magenta border border-brand-magenta/20">ASP.NET Core</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-navy-900 text-brand-mint border border-brand-mint/20">Docker</span>
+                    </div>
+                    <button type="button" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-magenta hover:text-brand-cyan transition-colors" @onclick='() => OpenProjectModal("api")'>
+                        View Architecture Details
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Offline-First Desktop Utility -->
+            <div class="rounded-2xl bg-navy-800/60 backdrop-blur-md border border-white/10 p-7 hover:border-brand-mint/40 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-brand-mint/10 border border-brand-mint/25 text-brand-mint font-mono text-xs font-semibold">
+                            Desktop Showcase
+                        </span>
+                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2.5">Offline-First Desktop Utility</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Fast local-first inventory, receipt, and reporting desktop tool with zero cloud dependency&mdash;built to launch instantaneously on modest Windows or Linux hardware.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
+                        <span class="px-2.5 py-1 rounded-lg bg-navy-900 text-brand-magenta border border-brand-magenta/20">Avalonia UI</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-navy-900 text-brand-mint border border-brand-mint/20">SQLite</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-navy-900 text-brand-cyan border border-brand-cyan/20">.NET</span>
+                    </div>
+                    <button type="button" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-mint hover:text-brand-cyan transition-colors" @onclick='() => OpenProjectModal("offline")'>
+                        View Architecture Details
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- PROJECT DETAILS MODAL                                     -->
+<!-- ========================================================= -->
+<div id="projectModal" class="@ModalClass" role="dialog" aria-modal="true" aria-labelledby="modalTitle" @onclick="CloseProjectModal">
+    <div class="relative w-full max-w-2xl rounded-2xl bg-navy-800 border border-white/15 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col" @onclick:stopPropagation="true">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between px-6 py-4 bg-navy-900/90 border-b border-white/10">
+            <div>
+                <span id="modalBadge" class="font-mono text-xs text-brand-cyan font-semibold uppercase tracking-wider">@_currentProject?.Badge</span>
+                <h3 id="modalTitle" class="text-xl font-bold text-white mt-0.5">@_currentProject?.Title</h3>
+            </div>
+            <button type="button" aria-label="Close modal" class="p-2 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white transition-colors" @onclick="CloseProjectModal">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6 overflow-y-auto space-y-5 text-sm text-slate-300">
+            <p id="modalSummary" class="leading-relaxed text-base text-slate-200">@_currentProject?.Summary</p>
+
+            <div>
+                <h4 class="font-mono text-xs uppercase tracking-wider text-brand-mint font-semibold mb-2.5">Key Features &amp; Architecture</h4>
+                <ul id="modalFeatures" class="space-y-2">
+                    @if (_currentProject is not null)
+                    {
+                        @foreach (var feature in _currentProject.Features)
+                        {
+                            <li class="flex items-start gap-2.5">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-cyan shrink-0"></span>
+                                <span>@feature</span>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-mono text-xs uppercase tracking-wider text-brand-magenta font-semibold mb-2.5">Tech Stack</h4>
+                <div id="modalTags" class="flex flex-wrap gap-2 font-mono text-xs">
+                    @if (_currentProject is not null)
+                    {
+                        @foreach (var tag in _currentProject.Tags)
+                        {
+                            <span class="px-2.5 py-1 rounded-lg bg-navy-900 border border-white/10 text-slate-200">@tag</span>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 bg-navy-900/90 border-t border-white/10 flex items-center justify-end gap-3">
+            <button type="button" class="px-4 py-2 rounded-xl bg-navy-800 border border-white/10 text-slate-200 hover:text-white text-sm font-medium transition-colors" @onclick="CloseProjectModal">
+                Close
+            </button>
+            <NavLink href="/contact" class="px-5 py-2 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-magenta text-navy-950 font-bold text-sm hover:opacity-95 transition-opacity">
+                Build Something Like This
+            </NavLink>
+        </div>
+    </div>
+</div>
+
+@code {
+    private sealed record ProjectDetails(string Badge, string Title, string Summary, string[] Features, string[] Tags);
+
+    private static readonly Dictionary<string, ProjectDetails> Projects = new()
+    {
+        ["hotspot"] = new ProjectDetails(
+            "Shipped Native Linux App (.deb)",
+            "HotspotGui — Wi-Fi Repeater Hotspot",
+            "Built to bypass Linux desktop environment limitations that drop your active Wi-Fi when starting a hotspot. HotspotGui wraps create_ap in a responsive Avalonia UI frontend so compatible Wi-Fi cards can run simultaneous STA+AP mode with one click.",
+            [
+                "Auto-detects wireless network interfaces directly from /sys/class/net.",
+                "Uses Polkit (pkexec) for clean graphical privilege elevation without running the GUI as root.",
+                "Streams live hostapd & EAPOL handshake logs to the UI thread via Avalonia Dispatcher.",
+                "Includes forced WPA2 (-w 2) toggle and graceful teardown on window close.",
+                "Packaged as an installable Debian .deb with a native KDE/XDG desktop launcher entry."
+            ],
+            ["C#", ".NET 10", "Avalonia UI", "Linux", "Polkit / pkexec", "Debian .deb"]),
+        ["api"] = new ProjectDetails(
+            "Backend Reference Architecture",
+            "ASP.NET Core Integration API",
+            "A production-grade .NET backend blueprint engineered for businesses needing reliable third-party API bridges, payment/event webhooks, and scheduled background data syncs.",
+            [
+                "Minimal APIs with strongly typed request validation and OpenAPI/Swagger documentation.",
+                "Non-blocking webhook ingestion backed by System.Threading.Channels and BackgroundService workers.",
+                "Resilient outbound HTTP calls with exponential backoff retry policies.",
+                "Structured logging, health check endpoints, and multi-stage Dockerfile for low-memory deployment."
+            ],
+            ["C#", "ASP.NET Core", ".NET 10", "PostgreSQL", "Docker", "REST / Webhooks"]),
+        ["offline"] = new ProjectDetails(
+            "Offline-First Desktop Blueprint",
+            "Offline-First Desktop Utility",
+            "Designed for retail shops, clinics, and field teams that cannot rely on constant internet connectivity. Delivers instant local search, inventory tracking, and PDF/CSV reporting with zero cloud subscription.",
+            [
+                "Embedded SQLite database with WAL mode for fast concurrent reads and crash-safe writes.",
+                "Cross-platform Avalonia UI compiled for both Windows (.exe) and Linux (.deb / .AppImage).",
+                "Clean MVVM architecture with automated local backup snapshots.",
+                "Zero external cloud dependencies—runs smoothly on low-spec hardware."
+            ],
+            ["C#", "Avalonia UI", "SQLite", ".NET 10", "MVVM", "Windows & Linux"])
+    };
+
+    private ProjectDetails? _currentProject;
+    private bool _focusModal;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_focusModal)
+        {
+            _focusModal = false;
+            try
+            {
+                await JS.InvokeVoidAsync("shipSharp.focusModal");
+            }
+            catch (JSException)
+            {
+                // Focus management is progressive enhancement; ignore if JS is unavailable.
+            }
+        }
+    }
+
+    private string ModalClass => _currentProject is null
+        ? "fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-950/80 backdrop-blur-sm"
+        : "fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-sm";
+
+    private void OpenProjectModal(string key)
+    {
+        if (Projects.TryGetValue(key, out var project))
+        {
+            _currentProject = project;
+            _focusModal = true;
+        }
+    }
+
+    private void CloseProjectModal() => _currentProject = null;
+}
